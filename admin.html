@@ -733,13 +733,20 @@ const DEFAULTS = [
 let posts=[], searchQ='', pendingDelId=null, currentId=null, dirty=false, savedRange=null;
 
 /* ── Storage ── */
-async function load(){
-  try{ const r=await window.storage.get('cf-posts-v3'); posts=r?JSON.parse(r.value):DEFAULTS.map(p=>({...p})); }
-  catch{ posts=DEFAULTS.map(p=>({...p})); }
+function load(){
+  try{
+    const r = localStorage.getItem('cf-posts-v3');
+    posts = r ? JSON.parse(r) : DEFAULTS.map(p=>({...p}));
+  } catch{
+    posts = DEFAULTS.map(p=>({...p}));
+  }
   render();
   ghRenderStatus();
 }
-async function save(){ try{ await window.storage.set('cf-posts-v3',JSON.stringify(posts)); }catch(e){console.error(e);} }
+function save(){
+  try{ localStorage.setItem('cf-posts-v3', JSON.stringify(posts)); }
+  catch(e){ console.error('Save failed:', e); }
+}
 
 /* ════════════════════════════════
    DASHBOARD
@@ -957,7 +964,7 @@ function saveContent(){
 const GH_OWNER  = 'brahimcharhoune';
 const GH_REPO   = 'cineformat-blog';
 const GH_BRANCH = 'main';
-const GH_PATH   = 'public/';
+const GH_PATH   = ''; // files sit at the repo root
 const GH_TOKEN_KEY = 'cf-gh-token'; // sessionStorage key
 
 function ghLoad(){
@@ -996,7 +1003,7 @@ function ghRenderStatus(){
     txt.textContent = GH_OWNER+'/'+GH_REPO;
     setupView.style.display     = 'none';
     connectedView.style.display = 'block';
-    document.getElementById('gh-connected-repo').textContent = GH_OWNER+'/'+GH_REPO+' → /public/ ('+GH_BRANCH+')';
+    document.getElementById('gh-connected-repo').textContent = GH_OWNER+'/'+GH_REPO+' ('+GH_BRANCH+')';
     if(btnPublish){ btnPublish.textContent='🚀 Save & Publish'; btnPublish.title='Pushes directly to GitHub Pages'; }
     const s3=document.getElementById('pib-step3'); if(s3) s3.innerHTML='File pushes to <strong style="color:#7ed9a5;">GitHub</strong> automatically';
     const s4=document.getElementById('pib-step4'); if(s4) s4.style.display='list-item';
