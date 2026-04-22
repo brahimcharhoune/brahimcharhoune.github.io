@@ -27,4 +27,4 @@ User-agent: Bingbot
 Allow: /
 
 # Sitemap location
-Sitemap: https://cineformatautomation.online/sitemap.xml
+Sitemap: https://cineformat.net/sitemap.xml
