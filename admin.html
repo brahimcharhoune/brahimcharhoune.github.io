@@ -7,7 +7,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Blog Admin — CineFormat AI</title>
+  <title>Blog Admin — CineFormat</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body { background: var(--bg); overflow-x: hidden; }
@@ -726,12 +726,12 @@
 const DEFAULTS = [
   {id:'p1',title:'How to Format a Screenplay in Google Docs: A Complete Walkthrough',desc:'Step-by-step instructions for applying industry-standard formatting to your script inside Google Docs.',slug:'how-to-format-screenplay-in-google-docs.html',cat:'Tutorial',content:''},
   {id:'p2',title:'Screenplay Format Guide: Every Element Explained',desc:'A complete reference for scene headings, dialogue, action lines, transitions, and page layout specifications.',slug:'screenplay-format-guide.html',cat:'Reference',content:''},
-  {id:'p3',title:'CineFormat AI vs Final Draft vs Fade In: Which Is Right for You?',desc:'An honest comparison of screenplay formatting tools to help you choose the best option for your workflow.',slug:'cineformat-ai-vs-screenwriting-software.html',cat:'Comparison',content:''},
-  {id:'p4',title:'Common Questions About Screenplay Formatting in Google Docs',desc:'Answers to the most frequent questions about using CineFormat AI, exporting scripts, and formatting standards.',slug:'faq.html',cat:'FAQ',content:''},
-  {id:'p5',title:'Exporting Your Screenplay: PDF and Final Draft (.fdx) Options',desc:'How to produce a submission-ready PDF and a Final Draft .fdx file from Google Docs using CineFormat AI.',slug:'Support-Page.html',cat:'Guide',content:''},
-  {id:'p6',title:'Collaborative Screenwriting in Google Docs: A Practical Guide',desc:"How writing teams can use Google Docs' collaboration features alongside CineFormat AI for shared script development.",slug:'how-to-format-screenplay-in-google-docs.html',cat:'Workflow',content:''},
-  {id:'p7',title:'How to Use a Screenplay Formatter in Google Docs',desc:'General tips for getting the best results from any screenplay formatter, plus a full step-by-step walkthrough of CineFormat AI.',slug:'how-to-use-screenplay-formatter-google-docs.html',cat:'Workflow',content:''},
-  {id:'p8',title:'AI Screenplay Formatter: What It Is and How to Use One',desc:"How AI screenplay formatters differ from rule-based tools, when to use one, and a full walkthrough of CineFormat AI's AI-powered formatting.",slug:'ai-screenplay-formatter.html',cat:'Guide',content:''},
+  {id:'p3',title:'CineFormat vs Final Draft vs Fade In: Which Is Right for You?',desc:'An honest comparison of screenplay formatting tools to help you choose the best option for your workflow.',slug:'cineformat-ai-vs-screenwriting-software.html',cat:'Comparison',content:''},
+  {id:'p4',title:'Common Questions About Screenplay Formatting in Google Docs',desc:'Answers to the most frequent questions about using CineFormat, exporting scripts, and formatting standards.',slug:'faq.html',cat:'FAQ',content:''},
+  {id:'p5',title:'Exporting Your Screenplay: PDF and Final Draft (.fdx) Options',desc:'How to produce a submission-ready PDF and a Final Draft .fdx file from Google Docs using CineFormat.',slug:'Support-Page.html',cat:'Guide',content:''},
+  {id:'p6',title:'Collaborative Screenwriting in Google Docs: A Practical Guide',desc:"How writing teams can use Google Docs' collaboration features alongside CineFormat for shared script development.",slug:'how-to-format-screenplay-in-google-docs.html',cat:'Workflow',content:''},
+  {id:'p7',title:'How to Use a Screenplay Formatter in Google Docs',desc:'General tips for getting the best results from any screenplay formatter, plus a full step-by-step walkthrough of CineFormat.',slug:'how-to-use-screenplay-formatter-google-docs.html',cat:'Workflow',content:''},
+  {id:'p8',title:'AI Screenplay Formatter: What It Is and How to Use One',desc:"How AI screenplay formatters differ from rule-based tools, when to use one, and a full walkthrough of CineFormat's AI-powered formatting.",slug:'ai-screenplay-formatter.html',cat:'Guide',content:''},
 ];
 
 let posts=[], searchQ='', pendingDelId=null, currentId=null, dirty=false, savedRange=null;
@@ -875,7 +875,7 @@ function initDrag(){
 /* export blog.html */
 function exportBlog(){
   const cards=posts.map(p=>`      <a class="blog-card" href="${p.slug}">\n        <div class="blog-cat">${p.cat}</div>\n        <h3>${esc(p.title)}</h3>\n        <p>${esc(p.desc)}</p>\n      </a>`).join('\n');
-  const html=`<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8" />\n  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n  <title>Blog — CineFormat AI</title>\n  <meta name="description" content="Guides, tutorials, and resources for screenwriters working in Google Docs." />\n  <link rel="canonical" href="https://cineformatautomation.online/blog" />\n  <link rel="stylesheet" href="style.css" />\n</head>\n<body>\n<div class="page-wrapper">\n  <div class="inner-page" style="max-width:1000px;">\n    <a class="back-link" href="index.html">← Back to Home</a>\n    <h1>CineFormat AI Blog</h1>\n    <p class="intro-lead">Guides, tips, and resources for screenwriters working in Google Docs.</p>\n    <div class="blog-grid">\n${cards}\n    </div>\n  </div>\n</div>\n<script src="site.js"><\/script>\n</body>\n</html>`;
+  const html=`<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8" />\n  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n  <title>Blog — CineFormat</title>\n  <meta name="description" content="Guides, tutorials, and resources for screenwriters working in Google Docs." />\n  <link rel="canonical" href="https://cineformatautomation.online/blog" />\n  <link rel="stylesheet" href="style.css" />\n</head>\n<body>\n<div class="page-wrapper">\n  <div class="inner-page" style="max-width:1000px;">\n    <a class="back-link" href="index.html">← Back to Home</a>\n    <h1>CineFormat Blog</h1>\n    <p class="intro-lead">Guides, tips, and resources for screenwriters working in Google Docs.</p>\n    <div class="blog-grid">\n${cards}\n    </div>\n  </div>\n</div>\n<script src="site.js"><\/script>\n</body>\n</html>`;
   dl(html,'blog.html'); toast('blog.html downloaded!');
 }
 
@@ -930,8 +930,8 @@ async function openEditor(id){
           if(metaDesc && !p.desc) document.getElementById('em-desc').value = metaDesc.getAttribute('content');
           const titleEl = doc.querySelector('title');
           if(titleEl){
-            // title format: "Post Title — CineFormat AI" → strip suffix
-            const raw = titleEl.textContent.replace(/\s*—\s*CineFormat AI$/,'').trim();
+            // title format: "Post Title — CineFormat" → strip suffix
+            const raw = titleEl.textContent.replace(/\s*—\s*CineFormat$/,'').trim();
             if(raw && raw !== p.title) document.getElementById('em-title').value = raw;
           }
         }
@@ -965,7 +965,7 @@ function leaveEditor(){
 }
 
 function defaultContent(p){
-  return `<h2>Introduction</h2>\n<p>Write your introduction here. Explain what this post covers and why it matters.</p>\n<h2>Main Section</h2>\n<p>Add your main content. Use the toolbar above to format text, add headings, and more.</p>\n<ul><li>Key point one</li><li>Key point two</li><li>Key point three</li></ul>\n<h2>Conclusion</h2>\n<p>Wrap up with a summary and a call to action.</p>\n<div class="highlight-box"><p><strong>Ready to get started?</strong></p><p>Install CineFormat AI free from the Google Workspace Marketplace.</p></div>`;
+  return `<h2>Introduction</h2>\n<p>Write your introduction here. Explain what this post covers and why it matters.</p>\n<h2>Main Section</h2>\n<p>Add your main content. Use the toolbar above to format text, add headings, and more.</p>\n<ul><li>Key point one</li><li>Key point two</li><li>Key point three</li></ul>\n<h2>Conclusion</h2>\n<p>Wrap up with a summary and a call to action.</p>\n<div class="highlight-box"><p><strong>Ready to get started?</strong></p><p>Install CineFormat free from the Google Workspace Marketplace.</p></div>`;
 }
 
 function saveContent(){
@@ -1059,7 +1059,7 @@ function buildPostHtml(){
   const cat   = document.getElementById('em-cat').value;
   const body  = document.getElementById('canvas').innerHTML;
   return {
-    html: `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8" />\n  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n  <title>${esc(title)} — CineFormat AI</title>\n  <meta name="description" content="${esc(desc)}" />\n  <link rel="canonical" href="https://cineformatautomation.online/${slug}" />\n  <link rel="stylesheet" href="style.css" />\n</head>\n<body>\n<div class="page-wrapper">\n  <div class="inner-page">\n    <a class="back-link" href="blog.html">← Back to Blog</a>\n    <div class="blog-cat" style="display:inline-block;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:1rem;">${esc(cat)}</div>\n    <h1>${esc(title)}</h1>\n    <p class="intro-lead">${esc(desc)}</p>\n    ${body}\n  </div>\n</div>\n<script src="site.js"><\/script>\n</body>\n</html>`,
+    html: `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8" />\n  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n  <title>${esc(title)} — CineFormat</title>\n  <meta name="description" content="${esc(desc)}" />\n  <link rel="canonical" href="https://cineformatautomation.online/${slug}" />\n  <link rel="stylesheet" href="style.css" />\n</head>\n<body>\n<div class="page-wrapper">\n  <div class="inner-page">\n    <a class="back-link" href="blog.html">← Back to Blog</a>\n    <div class="blog-cat" style="display:inline-block;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:1rem;">${esc(cat)}</div>\n    <h1>${esc(title)}</h1>\n    <p class="intro-lead">${esc(desc)}</p>\n    ${body}\n  </div>\n</div>\n<script src="site.js"><\/script>\n</body>\n</html>`,
     filename: p.slug || slug+'.html'
   };
 }
@@ -1150,7 +1150,7 @@ async function saveAndPublish(){
 /* ── Build blog.html string (for auto-push) ── */
 function buildBlogHtml(){
   const cards = posts.map(p=>`      <a class="blog-card" href="${p.slug}">\n        <div class="blog-cat">${p.cat}</div>\n        <h3>${esc(p.title)}</h3>\n        <p>${esc(p.desc)}</p>\n      </a>`).join('\n');
-  return `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8" />\n  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n  <title>Blog — CineFormat AI</title>\n  <meta name="description" content="Guides, tutorials, and resources for screenwriters working in Google Docs." />\n  <link rel="canonical" href="https://cineformatautomation.online/blog" />\n  <link rel="stylesheet" href="style.css" />\n</head>\n<body>\n<div class="page-wrapper">\n  <div class="inner-page" style="max-width:1000px;">\n    <a class="back-link" href="index.html">← Back to Home</a>\n    <h1>CineFormat AI Blog</h1>\n    <p class="intro-lead">Guides, tips, and resources for screenwriters working in Google Docs.</p>\n    <div class="blog-grid">\n${cards}\n    </div>\n  </div>\n</div>\n<script src="site.js"><\/script>\n</body>\n</html>`;
+  return `<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8" />\n  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n  <title>Blog — CineFormat</title>\n  <meta name="description" content="Guides, tutorials, and resources for screenwriters working in Google Docs." />\n  <link rel="canonical" href="https://cineformatautomation.online/blog" />\n  <link rel="stylesheet" href="style.css" />\n</head>\n<body>\n<div class="page-wrapper">\n  <div class="inner-page" style="max-width:1000px;">\n    <a class="back-link" href="index.html">← Back to Home</a>\n    <h1>CineFormat Blog</h1>\n    <p class="intro-lead">Guides, tips, and resources for screenwriters working in Google Docs.</p>\n    <div class="blog-grid">\n${cards}\n    </div>\n  </div>\n</div>\n<script src="site.js"><\/script>\n</body>\n</html>`;
 }
 
 function showPublishBanner(){
