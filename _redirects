@@ -1,9 +1,0 @@
-# _redirects for CineFormat AI
-# Netlify-style redirect rules
-# Place this file at the root of your deployed site
-
-# Redirect /home to the homepage
-/home                          https://cineformatautomation.online/          301
-
-# Optional: catch common variations
-/index.html                    https://cineformatautomation.online/          301
