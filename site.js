@@ -4,7 +4,7 @@
 
   const nav = `
   <nav>
-    <a class="nav-logo" href="index.html">Cine<span>Format</span> AI</a>
+    <a class="nav-logo" href="index.html">Cine<span>Format</a>
     <ul class="nav-links">
       <li><a href="how-to-format-screenplay-in-google-docs.html" ${path.includes('how-to') ? 'class="active"' : ''}>How-To Guide</a></li>
       <li><a href="screenplay-format-guide.html" ${path.includes('format-guide') ? 'class="active"' : ''}>Format Guide</a></li>
@@ -17,7 +17,7 @@
 
   const footer = `
   <footer>
-    <span>© 2026 CineFormat AI. All rights reserved.</span>
+    <span>© 2026 CineFormat . All rights reserved.</span>
     <div class="footer-links">
       <a href="how-to-format-screenplay-in-google-docs.html">How-To Guide</a>
       <a href="screenplay-format-guide.html">Format Guide</a>
